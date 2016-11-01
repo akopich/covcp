@@ -1,0 +1,9 @@
+Package: covcp
+Title: R package for change-point detection in covariance structure 
+Version: 0.1
+Authors@R: person("Valeriy", "Avanesov", email = "avanesov@wias-berlin.de", role = c("aut", "cre"))
+Description: R package for change-point detection in covariance structure 
+Depends: R (>= 3.3.1)
+License: GPL 2.0
+Encoding: UTF-8
+LazyData: true
