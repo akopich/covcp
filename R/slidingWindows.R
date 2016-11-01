@@ -18,5 +18,5 @@ slidingWindows = function(data, windowSize, getParameters, parameterDistance) {
   
   centralPoints = (windowSize + 1):numberOfEstimators
   
-  list(centralPoints, distances)
+  list("centralPoints" = centralPoints, "distances" = distances)
 }
