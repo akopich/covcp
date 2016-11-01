@@ -1,7 +1,7 @@
 # R package for change-point detection in covariance structure
 # Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
 
-slidingWindows = function(data, windowSize, getParameters, parameterDistance) {
+slidingWindows = function(data, windowSize, getParameters, parameterDifferenceNorm) {
   parameters = lapply(1:(nrow(data) - windowSize + 1), function(i) {
     windowData = data[i:(i + windowSize - 1), ]
     getParameters(windowData)
@@ -13,7 +13,7 @@ slidingWindows = function(data, windowSize, getParameters, parameterDistance) {
     left = parameters[[i]]
     right = parameters[[i + windowSize]]
     
-    parameterDistance(left, right)
+    parameterDifferenceNorm(left - right)
   })
   
   centralPoints = (windowSize + 1):numberOfEstimators

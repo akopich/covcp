@@ -1,7 +1,7 @@
 # R package for change-point detection in covariance structure
 # Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
 
-slidingWindowsDifferenceOfMean = function(data, windowSize, differenceNorm) {
+slidingWindowsDifferenceOfMean = function(data, windowSize, parameterDifferenceNorm) {
   data = data / windowSize
   
   i = 1
@@ -13,7 +13,7 @@ slidingWindowsDifferenceOfMean = function(data, windowSize, differenceNorm) {
   N = nrow(data)
   
   repeat {
-    distances = c(distances, differenceNorm(difference))
+    distances = c(distances, parameterDifferenceNorm(difference))
     
     if (i == N - 2 * windowSize + 1) {
       break
