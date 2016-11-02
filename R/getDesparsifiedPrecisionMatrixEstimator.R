@@ -6,6 +6,6 @@ getDesparsifiedPrecisionMatrixEstimator = function(Var, GL) function(windowSize)
 }
 
 getDesparsifiedEstimator = function(data, theta) {
-  sigma = myCov(data)
+  sigma = Cov(data)
   theta + t(theta) - t(theta) %*% sigma %*% theta
 }

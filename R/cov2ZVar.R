@@ -4,3 +4,8 @@ cov2ZVar = function(nullCov) function(stableSet, hatTheta) {
   
   getGaussianSigmas(theta, NULL)
 }
+
+getGaussianSigmas = function(theta, data) {
+  d = diag(theta)
+  return(theta^2 + d %*% t(d))
+}
