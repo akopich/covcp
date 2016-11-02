@@ -20,11 +20,11 @@ createPrecisionMatrixTest = function(windowSizes,
                                      GL, 
                                      diffNorm, 
                                      stableSetIndexs, 
-                                     getVar) {
+                                     getVar,
+                                     bootstrapIterations = 1000) {
   stableSet = data[stableSetIndexs, ]
   
   hatTheta = GL(stableSet)
-  
   Var = getVar(stableSet, hatTheta)
   
   statistic = precisionMatrixStatistic(windowSizes, 
@@ -32,8 +32,18 @@ createPrecisionMatrixTest = function(windowSizes,
                                        distances2statistic, 
                                        getDesparsifiedPrecisionMatrixEstimator(Var, GL),
                                        diffNorm) 
+  stable = data[stableSetIndexs, ]
   
-  statistic
+  criticalValue = precisionMatrixBootstrapBasedCriticalLevel(stable, 
+                                                             bootstrapIterations, 
+                                                             hatTheta, 
+                                                             nrow(data), 
+                                                             windowSizes, 
+                                                             diffNorm, 
+                                                             distances2statistic,
+                                                             Var) 
+  
+  list("statistic" = statistic, "criticalValue" = criticalValue)
 }
 
 
