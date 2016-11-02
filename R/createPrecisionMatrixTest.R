@@ -1,3 +1,6 @@
+# R package for change-point detection in covariance structure
+# Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
+
 precisionMatrixStatistic = function(windowSizes, 
                                     data,
                                     distances2statistic, 
