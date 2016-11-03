@@ -6,12 +6,20 @@ precisionMatrixStatistic = function(windowSizes,
                                     distances2statistic, 
                                     windowSize2Data2Parameter, 
                                     diffNorm) {
-  max(sapply(windowSizes, function(windowSize) {
-    distances2statistic(slidingWindows(data, 
-                                       windowSize, 
-                                       windowSize2Data2Parameter(windowSize), 
-                                       diffNorm))
-  }))
+  window2statistics = lapply(windowSizes, function(windowSize) {
+    distances = slidingWindows(data, 
+                                windowSize, 
+                                windowSize2Data2Parameter(windowSize), 
+                                diffNorm)
+    
+    distances$statistics = max(distances$distances)
+    distances$windowSize = windowSize
+    distances    
+  })
+  
+  statistic = max(sapply(window2statistics, function(x) x$statistic))
+  
+  list("statistics" = statistic, "window2statistics" = window2statistics)
 }
 
 createPrecisionMatrixTest = function(windowSizes, 
@@ -27,7 +35,7 @@ createPrecisionMatrixTest = function(windowSizes,
   hatTheta = GL(stableSet)
   Var = getVar(stableSet, hatTheta)
   
-  statistic = precisionMatrixStatistic(windowSizes, 
+  stats = precisionMatrixStatistic(windowSizes, 
                                        data, 
                                        distances2statistic, 
                                        getDesparsifiedPrecisionMatrixEstimator(Var, GL),
@@ -43,7 +51,7 @@ createPrecisionMatrixTest = function(windowSizes,
                                                              distances2statistic,
                                                              Var) 
   
-  list("statistic" = statistic, "criticalValue" = criticalValue)
+  list("statistics" = stats, "criticalValue" = criticalValue)
 }
 
 
