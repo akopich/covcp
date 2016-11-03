@@ -23,7 +23,7 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
   
   SD = sqrt(Var)
   
-  bootstrappedValues = sapply(1:iterations, function(iter) {
+  bootstrappedValues = parSapply(1:iterations, function(iter) {
     bootstrapZ = Zs[sample(1:nrow(stable), N, replace = T), ]
     max(sapply(windowSizes, function(windowSize) {
       normalizedZ = sweep(bootstrapZ, 2, as.vector(SD/sqrt(windowSize)), '/')
@@ -38,6 +38,13 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
 
 
 
+parSapply = function(values, f) {
+  set.seed(13)
+  
+  as.numeric(foreach(val = values, .combine = 'c') %dorng% {
+    f(val)
+  })
+}
 
 
 

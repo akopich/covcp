@@ -1,0 +1,11 @@
+sample.interval=20000
+"ls" "FUN" "lapply" ".rs.objectsOnSearchPath" "unlist" "<Anonymous>" 
+"dyn.load" "library.dynam" "loadNamespace" "asNamespace" "namespaceImportFrom" "loadNamespace" "namespaceImport" "loadNamespace" "namespaceImport" "loadNamespace" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" "library" 
+".identC" "as" "setDataPart" ".asCoerceMethod" "as" "body<-" "body<-" "makeGeneric" "implicitGeneric" ".genericOrImplicit" "methods::cacheMetaData" "loadNamespace" "asNamespace" "namespaceImportFrom" "loadNamespace" "namespaceImport" "loadNamespace" "namespaceImport" "loadNamespace" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" "library" 
+"is" ".checkGroupSigLength" "Recall" ".checkGroupSigLength" ".updateMethodsInTable" ".updateMethodsInTable" ".updateMethodsInTable" "methods::cacheMetaData" "loadNamespace" "asNamespace" "namespaceImportFrom" "loadNamespace" "namespaceImport" "loadNamespace" "namespaceImport" "loadNamespace" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" "library" 
+"is" ".checkGroupSigLength" "Recall" ".checkGroupSigLength" ".updateMethodsInTable" ".updateMethodsInTable" ".updateMethodsInTable" "methods::cacheMetaData" "loadNamespace" "asNamespace" "namespaceImportFrom" "loadNamespace" "namespaceImport" "loadNamespace" "namespaceImport" "loadNamespace" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" "library" 
+"close" "readRDS" "FUN" "lapply" "find.package" "loadNamespace" "asNamespace" "namespaceImportFrom" "loadNamespace" "namespaceImport" "loadNamespace" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" "library" 
+"load" 
+"sum" "FUN" "apply" "scale.default" "scale" 
+"gc" "profvis" 
+"gc" "profvis" 

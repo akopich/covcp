@@ -29,7 +29,8 @@ createPrecisionMatrixTest = function(windowSizes,
                                      diffNorm, 
                                      stableSetIndexs, 
                                      getVar,
-                                     bootstrapIterations = 1000) {
+                                     bootstrapIterations = 1000,
+                                     nonSymmetricGL = GL) {
   stableSet = data[stableSetIndexs, ]
   
   hatTheta = GL(stableSet)
@@ -38,7 +39,7 @@ createPrecisionMatrixTest = function(windowSizes,
   stats = precisionMatrixStatistic(windowSizes, 
                                        data, 
                                        distances2statistic, 
-                                       getDesparsifiedPrecisionMatrixEstimator(Var, GL),
+                                       getDesparsifiedPrecisionMatrixEstimator(Var, nonSymmetricGL),
                                        diffNorm) 
   stable = data[stableSetIndexs, ]
   
