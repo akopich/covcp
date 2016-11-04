@@ -1,0 +1,1 @@
+maxSapply = function(xs, f) max(sapply(xs, f))

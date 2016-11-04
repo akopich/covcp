@@ -17,7 +17,7 @@ precisionMatrixStatistic = function(windowSizes,
     distances    
   })
   
-  statistic = max(sapply(window2statistics, function(x) x$statistic))
+  statistic = maxSapply(window2statistics, function(x) x$statistic)
   
   list("statistics" = statistic, "window2statistics" = window2statistics)
 }
