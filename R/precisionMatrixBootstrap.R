@@ -39,8 +39,6 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
 
 
 parSapply = function(values, f) {
-  set.seed(13)
-  
   as.numeric(foreach(val = values, .combine = 'c') %dorng% {
     f(val)
   })
