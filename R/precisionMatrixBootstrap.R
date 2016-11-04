@@ -25,7 +25,8 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
   SD = sqrt(Var)
   
   bootstrappedValues = parSapply(1:iterations, function(iter) {
-    bootstrapZ = Zs[sample(1:nrow(stable), N, replace = T), ]
+    bootstrapZ = drawWithReplacement(Zs, N)
+    
     maxSapply(windowSizes, function(windowSize) {
       normalizedZ = sweep(bootstrapZ, 2, as.vector(SD/sqrt(windowSize)), '/')
       distances2statistic(slidingWindowsDifferenceOfMean(normalizedZ, 
@@ -34,7 +35,7 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
     })
   })
   
-  unname(quantile(bootstrappedValues, probs = c(1-alpha)))
+  unname(quantile(bootstrappedValues, probs = c(1 - alpha)))
 }
 
 
