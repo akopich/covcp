@@ -11,6 +11,7 @@ getZs = function(theta, X) {
 
 precisionMatrixBootstrapBasedCriticalLevel = function(stable, 
                                                       iterations, 
+                                                      alpha,
                                                       theta, 
                                                       N, 
                                                       windowSizes, 
@@ -33,7 +34,7 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
     })
   })
   
-  unname(quantile(bootstrappedValues, probs = c(0.95)))
+  unname(quantile(bootstrappedValues, probs = c(1-alpha)))
 }
 
 

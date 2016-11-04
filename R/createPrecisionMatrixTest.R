@@ -23,6 +23,7 @@ precisionMatrixStatistic = function(windowSizes,
 }
 
 createPrecisionMatrixTest = function(windowSizes, 
+                                     alpha,
                                      data, 
                                      distances2statistic, 
                                      GL, 
@@ -45,6 +46,7 @@ createPrecisionMatrixTest = function(windowSizes,
   
   criticalValue = precisionMatrixBootstrapBasedCriticalLevel(stable, 
                                                              bootstrapIterations, 
+                                                             alpha,
                                                              hatTheta, 
                                                              nrow(data), 
                                                              windowSizes, 
