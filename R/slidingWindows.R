@@ -2,16 +2,16 @@
 # Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
 
 slidingWindows = function(data, windowSize, getParameters, parameterDifferenceNorm) {
-  parameters = lapply(1:(nrow(data) - windowSize + 1), function(i) {
+  parameters = parRbind(1:(nrow(data) - windowSize + 1), function(i) {
     windowData = data[i:(i + windowSize - 1), ]
     getParameters(windowData)
   })
   
-  numberOfEstimators = length(parameters)
+  numberOfEstimators = nrow(parameters)
   
   distances = sapply(1:(numberOfEstimators - windowSize), function(i) {
-    left = parameters[[i]]
-    right = parameters[[i + windowSize]]
+    left = parameters[i, ]
+    right = parameters[i + windowSize, ]
     
     parameterDifferenceNorm(left - right)
   })

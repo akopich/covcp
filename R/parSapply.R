@@ -3,3 +3,9 @@ parSapply = function(values, f) {
     f(val)
   })
 }
+
+parRbind = function(values, f) {
+  foreach(val = values, .combine = 'rbind') %dorng% {
+    f(val)
+  }
+}
