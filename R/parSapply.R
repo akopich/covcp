@@ -1,11 +1,8 @@
-parSapply = function(values, f) {
-  as.numeric(foreach(val = values, .combine = 'c') %dorng% {
-    f(val)
-  })
+parX = function(x) function(values, f) foreach(val = values, .combine = x) %dorng% {
+  f(val)
 }
 
-parRbind = function(values, f) {
-  foreach(val = values, .combine = 'rbind') %dorng% {
-    f(val)
-  }
-}
+parSapply = parX('c')
+
+parRbind = parX('rbind')
+
