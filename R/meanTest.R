@@ -36,9 +36,6 @@ meanBootstrapBasedCriticalLevel = function(stable,
                                             windowSizes, 
                                             parameterDifferenceNorm, 
                                             distances2statistic) {
-  means = colMeans(stable)
-  stable = sweep(stable, 2, means, '-')
-  
   bootstrappedValues = parSapply(1:iterations, function(iter) {
     bootstrapSample = drawWithReplacement(stable, N)
     
