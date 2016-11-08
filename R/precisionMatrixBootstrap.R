@@ -24,16 +24,15 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
   
   SD = sqrt(Var)
   
-  bootstrappedValues = parSapply(1:iterations, function(iter) {
-    bootstrapZ = drawWithReplacement(Zs, N)
-    
-    maxSapply(windowSizes, function(windowSize) {
-      normalizedZ = sweep(bootstrapZ, 2, as.vector(SD/sqrt(windowSize)), '/')
-      distances2statistic(slidingWindowsDifferenceOfMean(normalizedZ, 
-                                                        windowSize, 
-                                                        parameterDifferenceNorm))
-    })
-  })
+  normalize = function(bootSample, windowSize) sweep(bootSample, 2, as.vector(SD/sqrt(windowSize)), '/')
+  
+  bootstrappedValues = generateBootstrapValues(iterations, 
+                                               Zs, 
+                                               N, 
+                                               windowSizes, 
+                                               normalize, 
+                                               distances2statistic, 
+                                               parameterDifferenceNorm)
   
   unname(quantile(bootstrappedValues, probs = c(1 - alpha)))
 }

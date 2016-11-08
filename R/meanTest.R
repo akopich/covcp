@@ -36,15 +36,13 @@ meanBootstrapBasedCriticalLevel = function(stable,
                                             windowSizes, 
                                             parameterDifferenceNorm, 
                                             distances2statistic) {
-  bootstrappedValues = parSapply(1:iterations, function(iter) {
-    bootstrapSample = drawWithReplacement(stable, N)
-    
-    maxSapply(windowSizes, function(windowSize) {
-      distances2statistic(slidingWindowsDifferenceOfMean(bootstrapSample * sqrt(windowSize), 
-                                                         windowSize, 
-                                                         parameterDifferenceNorm))
-    })
-  })
+  bootstrappedValues = generateBootstrapValues(iterations, 
+                                               data, 
+                                               N, 
+                                               windowSizes, 
+                                               function(bootstrapSample, windowSize) bootstrapSample * sqrt(windowSize), 
+                                               distances2statistic, 
+                                               parameterDifferenceNorm) 
   
   unname(quantile(bootstrappedValues, probs = c(1 - alpha)))
 }
