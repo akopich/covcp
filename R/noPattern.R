@@ -1,0 +1,1 @@
+noPattern = max(x$distances)

@@ -1,0 +1,1 @@
+infNorm = function(x) max(abs(x))
