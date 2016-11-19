@@ -1,1 +1,1 @@
-noPattern = max(x$distances)
+noPattern = function(x) max(x$distances)
