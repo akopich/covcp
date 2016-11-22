@@ -37,7 +37,7 @@ meanBootstrapBasedCriticalLevel = function(stable,
                                             parameterDifferenceNorm, 
                                             distances2statistic) {
   bootstrappedValues = generateBootstrapValues(iterations, 
-                                               data, 
+                                               stable, 
                                                N, 
                                                windowSizes, 
                                                function(bootstrapSample, windowSize) bootstrapSample * sqrt(windowSize), 
