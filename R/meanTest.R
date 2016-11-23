@@ -2,6 +2,10 @@ getMeanEstimator = function(window) function(data) {
   colSums(data) / sqrt(window)
 }
 
+divideColumnWise = function(data, vars) {
+  data %*% diag(sqrt(1/vars))
+}
+
 createMeanTest = function(windowSizes, 
                                      alpha,
                                      data, 
@@ -10,6 +14,10 @@ createMeanTest = function(windowSizes,
                                      stableSetIndexs, 
                                      bootstrapIterations = 1000) {
   stableSet = data[stableSetIndexs, ]
+  
+  vars = empiricalCovariance(stableSet, hatTheta) 
+  data = divideColumnWise(data, vars)
+  stableSet = divideColumnWise(stableSet, vars)
   
   stats = precisionMatrixStatistic(windowSizes, 
                                    data, 
