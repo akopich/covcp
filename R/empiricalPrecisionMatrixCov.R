@@ -2,6 +2,7 @@
 # Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
 
 empiricalPrecisionMatrixCov = function(stableSet, hatTheta) {
+  p = nrow(hatTheta)
   Zs = getZs(hatTheta, stableSet)
-  Cov(Zs)
+  matrix(diag(cov(Zs)), p, p) 
 }
