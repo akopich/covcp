@@ -5,8 +5,8 @@ covTest = function(windowSizes,
                     diffNorm, 
                     stableSetIndexs, 
                     bootstrapIterations = 1000) {
+  data = vectorWiseCovariances(data)
   
-  data = t(apply(data, 1, function(x) as.vector(x %*% t(x))))
   createMeanTest(windowSizes, 
                  alpha,
                  data, 
@@ -15,4 +15,6 @@ covTest = function(windowSizes,
                  stableSetIndexs, 
                  bootstrapIterations)
 }
-  
+
+vectorWiseCovariances = function(data) t(apply(data, 1, function(x) as.vector(x %*% t(x))))
+   
