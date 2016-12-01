@@ -3,7 +3,8 @@ getMeanEstimator = function(window) function(data) {
 }
 
 divideColumnWise = function(data, vars) {
-  data %*% diag(sqrt(1/vars))
+  normalizer = 1 / sqrt(vars)
+  t(apply(data, 1, function(row) row * normalizer))
 }
 
 createMeanTest = function(windowSizes, 
