@@ -2,8 +2,6 @@
 # Copyright (C) 2016 Valeriy Avanesov acopich@gmail.com 
 
 slidingWindowsDifferenceOfMean = function(data, windowSize, parameterDifferenceNorm) {
-  data = data / windowSize
-  
   i = 1
   left  = colSums(data[i:(i + windowSize - 1), ])
   right = colSums(data[(i + windowSize):(i + 2*windowSize - 1), ])

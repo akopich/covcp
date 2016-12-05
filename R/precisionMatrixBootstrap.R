@@ -24,7 +24,7 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
   
   SD = sqrt(Var)
   
-  normalize = function(bootSample, windowSize) sweep(bootSample, 2, as.vector(SD/sqrt(windowSize)), '/')
+  normalize = function(bootSample, windowSize) sweep(bootSample, 2, as.vector(SD * sqrt(windowSize)), '/')
   
   bootstrappedValues = generateBootstrapValues(iterations, 
                                                Zs, 

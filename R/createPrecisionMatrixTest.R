@@ -42,9 +42,8 @@ createPrecisionMatrixTest = function(windowSizes,
                                        distances2statistic, 
                                        getDesparsifiedPrecisionMatrixEstimator(Var, nonSymmetricGL),
                                        diffNorm) 
-  stable = data[stableSetIndexs, ]
   
-  criticalValue = precisionMatrixBootstrapBasedCriticalLevel(stable, 
+  criticalValue = precisionMatrixBootstrapBasedCriticalLevel(stableSet, 
                                                              bootstrapIterations, 
                                                              alpha,
                                                              hatTheta, 

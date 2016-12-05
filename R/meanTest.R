@@ -49,7 +49,7 @@ meanBootstrapBasedCriticalLevel = function(stable,
                                                stable, 
                                                N, 
                                                windowSizes, 
-                                               function(bootstrapSample, windowSize) bootstrapSample * sqrt(windowSize), 
+                                               function(bootstrapSample, windowSize) bootstrapSample / sqrt(windowSize), 
                                                distances2statistic, 
                                                parameterDifferenceNorm) 
   
