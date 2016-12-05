@@ -1,4 +1,4 @@
-parX = function(x) function(values, f) foreach(val = values, .combine = x) %dorng% {
+parX = function(x) function(values, f) foreach(val = values, .combine = x) %dopar% {
   f(val)
 }
 
