@@ -43,7 +43,7 @@ createPrecisionMatrixTest = function(windowSizes,
                                        getDesparsifiedPrecisionMatrixEstimator(Var, nonSymmetricGL),
                                        diffNorm) 
   
-  criticalValue = precisionMatrixBootstrapBasedCriticalLevel(stableSet, 
+  criticalValues = precisionMatrixBootstrapBasedCriticalLevel(stableSet, 
                                                              bootstrapIterations, 
                                                              alpha,
                                                              hatTheta, 
@@ -53,7 +53,7 @@ createPrecisionMatrixTest = function(windowSizes,
                                                              distances2statistic,
                                                              Var) 
   
-  list("statistics" = stats, "criticalValue" = criticalValue)
+  list("statistics" = stats, "criticalValue" = criticalValues)
 }
 
 

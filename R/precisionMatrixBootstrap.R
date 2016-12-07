@@ -34,7 +34,7 @@ precisionMatrixBootstrapBasedCriticalLevel = function(stable,
                                                distances2statistic, 
                                                parameterDifferenceNorm)
   
-  unname(quantile(bootstrappedValues, probs = c(1 - alpha)))
+  getThreshold(bootstrappedValues, alpha)
 }
 
 

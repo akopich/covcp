@@ -1,8 +1,10 @@
 plotStats = function(statsAndCritValue) {
   stats = statsAndCritValue$statistics$window2statistics
-  crit = statsAndCritValue$criticalValue
+  crits = statsAndCritValue$criticalValue
   
-  for (forWindow in stats) {
+  for (index in 1:length(stats)) {
+    forWindow = stats[[index]]
+    crit = crits[index]
     plot(forWindow$centralPoints, 
          forWindow$distances, 
          col = ifelse(forWindow$distances > crit,"red", "black"), 

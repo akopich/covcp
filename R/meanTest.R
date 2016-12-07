@@ -26,14 +26,14 @@ createMeanTest = function(windowSizes,
                                    getMeanEstimator,
                                    diffNorm) 
   
-  criticalValue = meanBootstrapBasedCriticalLevel(stableSet, 
+  criticalValues = meanBootstrapBasedCriticalLevel(stableSet, 
                                           bootstrapIterations, 
                                           alpha,
                                           nrow(data), 
                                           windowSizes, 
                                           diffNorm, 
                                           distances2statistic)
-  list("statistics" = stats, "criticalValue" = criticalValue)
+  list("statistics" = stats, "criticalValue" = criticalValues)
 }
 
 
@@ -53,7 +53,7 @@ meanBootstrapBasedCriticalLevel = function(stable,
                                                distances2statistic, 
                                                parameterDifferenceNorm) 
   
-  unname(quantile(bootstrappedValues, probs = c(1 - alpha)))
+  getThreshold(bootstrappedValues, alpha)
 }
 
 
