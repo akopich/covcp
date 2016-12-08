@@ -23,7 +23,7 @@ createMeanTest = function(windowSizes,
   stats = precisionMatrixStatistic(windowSizes, 
                                    data, 
                                    distances2statistic, 
-                                   getMeanEstimator,
+                                   "mean",
                                    diffNorm) 
   
   criticalValues = meanBootstrapBasedCriticalLevel(stableSet, 

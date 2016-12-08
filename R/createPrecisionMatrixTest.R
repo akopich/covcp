@@ -7,10 +7,18 @@ precisionMatrixStatistic = function(windowSizes,
                                     windowSize2Data2Parameter, 
                                     diffNorm) {
   window2statistics = lapply(windowSizes, function(windowSize) {
-    distances = slidingWindows(data, 
-                                windowSize, 
-                                windowSize2Data2Parameter(windowSize), 
-                                diffNorm)
+    if (class(windowSize2Data2Parameter) != "function") {
+      if (windowSize2Data2Parameter == "mean") {
+        distances = slidingWindowsDifferenceOfMean(data / sqrt(windowSize), 
+                                                    windowSize, 
+                                                    diffNorm) 
+      }
+    } else {
+      distances = slidingWindows(data, 
+                                  windowSize, 
+                                  windowSize2Data2Parameter(windowSize), 
+                                  diffNorm)
+    }
     
     distances$statistics = max(distances$distances)
     distances$windowSize = windowSize
