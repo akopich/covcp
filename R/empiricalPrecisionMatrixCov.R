@@ -4,5 +4,5 @@
 empiricalPrecisionMatrixCov = function(stableSet, hatTheta) {
   p = nrow(hatTheta)
   Zs = getZs(hatTheta, stableSet)
-  matrix(diag(cov(Zs)), p, p) 
+  matrix(empiricalCovariance(Zs, NULL), p, p) 
 }
