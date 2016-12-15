@@ -15,10 +15,10 @@ generateBootstrapValues = function(iterations,
                                    normalize, 
                                    distances2statistic, 
                                    parameterDifferenceNorm) {
-  parRbind(1:iterations, function(iter) generateBootstrap(data, 
-                                                           N, 
-                                                           windowSizes, 
-                                                           normalize, 
-                                                           distances2statistic, 
-                                                           parameterDifferenceNorm))
+  parRbindShuffle(1:iterations, function(iter) generateBootstrap(data, 
+                                                                 N, 
+                                                                 windowSizes, 
+                                                                 normalize, 
+                                                                 distances2statistic, 
+                                                                 parameterDifferenceNorm))
 }
