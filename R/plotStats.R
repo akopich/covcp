@@ -1,4 +1,4 @@
-plotStats = function(statsAndCritValue) {
+plot.CPDResult = function(statsAndCritValue) {
   stats = statsAndCritValue$statistics$window2statistics
   crits = statsAndCritValue$criticalValue
   

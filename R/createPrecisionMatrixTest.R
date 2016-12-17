@@ -61,7 +61,7 @@ createPrecisionMatrixTest = function(windowSizes,
                                                              distances2statistic,
                                                              Var) 
   
-  list("statistics" = stats, "criticalValue" = criticalValues)
+  mkCPDResultClass(list("statistics" = stats, "criticalValue" = criticalValues))
 }
 
 

@@ -33,7 +33,7 @@ createMeanTest = function(windowSizes,
                                           windowSizes, 
                                           diffNorm, 
                                           distances2statistic)
-  list("statistics" = stats, "criticalValue" = criticalValues)
+  mkCPDResultClass(list("statistics" = stats, "criticalValue" = criticalValues))
 }
 
 
