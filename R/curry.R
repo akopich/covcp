@@ -12,4 +12,3 @@ curryThird = function(f, third) function(x, y, ...) f(x, y, third, ...)
 
 "%3%" <- curryThird
 
-"%.%" <- compose
