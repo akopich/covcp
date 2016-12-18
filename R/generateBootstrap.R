@@ -2,9 +2,9 @@ generateBootstrap = function(data, N, windowSizes, normalize, distances2statisti
   bootstrapSample = drawWithReplacement(data, N)
   
   sapply(windowSizes, function(windowSize) {
-    distances2statistic(slidingWindowsDifferenceOfMean(normalize(bootstrapSample, windowSize), 
-                                                       windowSize, 
-                                                       parameterDifferenceNorm))
+     (distances2statistic %.%
+     slidingWindowsDifferenceOfMean %2% windowSize %2% parameterDifferenceNorm %.%
+     normalize %2% windowSize) (bootstrapSample)
   })
 }
 
