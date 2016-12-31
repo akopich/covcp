@@ -6,6 +6,7 @@ covTest = function(windowSizes,
                     stableSetIndexs, 
                     bootstrapIterations = 1000) {
   data = vectorWiseCovariances(data)
+  data = scale(data, scale = F)
   
   createMeanTest(windowSizes, 
                  alpha,
@@ -16,5 +17,8 @@ covTest = function(windowSizes,
                  bootstrapIterations)
 }
 
-vectorWiseCovariances = function(data) t(apply(data, 1, function(x) as.vector(x %*% t(x))))
+vectorWiseCovariances = function(data) t(apply(data, 1, function(x) {
+    cov = x %*% t(x)
+    as.vector(cov[upper.tri(cov, diag=TRUE)])
+  } ))
    
