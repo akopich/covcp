@@ -1,5 +1,5 @@
 generateBootstrap = function(data, N, windowSizes, normalize, distances2statistic, parameterDifferenceNorm) {
-  bootstrapSample = drawWithReplacement(data, N)
+  bootstrapSample = drawWithReplacementWithWeights(data, N)
   
   sapply(windowSizes, function(windowSize) {
      (distances2statistic %.%

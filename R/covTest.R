@@ -6,7 +6,7 @@ covTest = function(windowSizes,
                     stableSetIndexs, 
                     bootstrapIterations = 1000) {
   data = vectorWiseCovariances(data)
-  data = scale(data, scale = F)
+  data = scale(data, center = colMeans(data[stableSetIndexs,]), scale = F)
   
   createMeanTest(windowSizes, 
                  alpha,
