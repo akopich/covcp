@@ -13,12 +13,15 @@ createMeanTest = function(windowSizes,
                                      distances2statistic, 
                                      diffNorm, 
                                      stableSetIndexs, 
+                                     scale = TRUE,
                                      bootstrapIterations = 1000) {
   stableSet = data[stableSetIndexs, ]
   
-  vars = empiricalCovariance(stableSet, hatTheta) 
-  data = divideColumnWise(data, vars)
-  stableSet = divideColumnWise(stableSet, vars)
+  if (scale) {
+    vars = empiricalCovariance(stableSet, hatTheta) 
+    data = divideColumnWise(data, vars)
+    stableSet = divideColumnWise(stableSet, vars)
+  }
   
   stats = precisionMatrixStatistic(windowSizes, 
                                    data, 

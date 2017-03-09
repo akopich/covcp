@@ -4,6 +4,7 @@ covTest = function(windowSizes,
                     distances2statistic, 
                     diffNorm, 
                     stableSetIndexs, 
+                    scale = TRUE,
                     bootstrapIterations = 1000) {
   data = vectorWiseCovariances(data)
   data = scale(data, center = colMeans(data[stableSetIndexs,]), scale = F)
@@ -14,6 +15,7 @@ covTest = function(windowSizes,
                  distances2statistic, 
                  diffNorm, 
                  stableSetIndexs, 
+                 scale,
                  bootstrapIterations)
 }
 
